@@ -56,11 +56,46 @@ def ejercicio3():
         "Tiramisu": 6,
         "Panna Cotta": 5.5
     }
-    ticket = []
-    pedido = input('Escribe si quieres pasta o pizza : ')
-    if input('Escribe si quieres pasta o pizza : ').casefold("Pasta"):
-        
-    elif pedido.casefold("Pizza"):
-        
+    
+    totalPrecio = 0
+    
+    pedido = input('Escribe si quieres pasta o pizza : ').lower()
+    if pedido == "pasta":
+        print('Carta : \n', carta["Pasta"])
+        pedido = input('Elige que pasta quieres : ')
+        if pedido in carta["Pasta"]:
+            totalPrecio += carta["Pasta"][pedido]
+            print('Carta : \n', carta["Salsa"])
+            pedido = input('Escribe la salsa que quieras :')
+            if pedido in carta["Salsa"]:
+                totalPrecio += carta["Salsa"][pedido]
+            else:
+                print('NO TENEMOS ESA SALSA O ESTA MAL ESCRITO')
+        else:
+            print('NO TENEMOS ESA PASTA O ESTA MAL ESCRITO')
+    elif pedido == ("pizza"):
+        print('Carta : \n', carta["Pizza"])
+        pedido = input('Elige que Pizza quieres : ')
+        if pedido in carta["Pizza"]:
+            totalPrecio += carta["Pizza"][pedido]
+            print('Escribe 5 ingredientes para la pizza \n', ingredientes)
+            for contador in range(5):
+                print (contador + 1 + " ")
+                pedido = input('Ingrediente : ')
+                if pedido in ingredientes:
+                    totalPrecio += ingredientes[pedido]
+                else:
+                    print('ESTE INGREDIENTE NO EXISTE O ESTA MAL ESCRITO')     
     else: 
         print('No existe esa opcion')
+        
+    print('Postres : \n', postres)
+    pedido = input('Escribe el postre que quieras : ')
+    if pedido in postres:
+        totalPrecio += postres[pedido]
+    else:
+        print('EL POSTRE ES INCORRECTO')
+        
+    print('El Precio de la mesa es : ',totalPrecio)
+    
+#ejercicio3()
