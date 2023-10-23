@@ -153,4 +153,4 @@ def ejercicio10():
     for grupo in grupoAnagramas:
         print(grupo)
         
-ejercicio10()
+#ejercicio10()
